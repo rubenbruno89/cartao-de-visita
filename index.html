@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rúben Menezes — Analista de Suporte Técnico</title>
+  <meta name="description" content="Cartão de visita digital de Rúben Menezes, Analista de Suporte Técnico. Contato por telefone, WhatsApp e e-mail.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "feather-icons": "https://esm.sh/feather-icons@4.29.1",
+      "qrcode": "https://esm.sh/qrcode@1.5.3"
+    }
+  }
+  </script>
+</head>
+<body>
+  <main class="card" role="main">
+    <header class="header">
+      <div class="avatar" aria-hidden="true">RM</div>
+      <div>
+        <h1 class="name">Rúben Menezes</h1>
+        <p class="role">Analista de Suporte Técnico</p>
+      </div>
+    </header>
+
+    <section class="contact">
+      <div class="contact-row">
+        <span class="label">Telefone</span>
+        <a class="value" href="tel:+5527999208451" aria-label="Ligar para +55 27 99920-8451">+55 27 99920-8451</a>
+        <div class="actions">
+          <button class="icon-btn" data-copy="+5527999208451" aria-label="Copiar telefone" title="Copiar telefone">
+            <i data-feather="copy"></i>
+          </button>
+          <a class="icon-btn" href="tel:+5527999208451" aria-label="Ligar" title="Ligar">
+            <i data-feather="phone"></i>
+          </a>
+          <button class="icon-btn" id="qrBtn" aria-haspopup="dialog" aria-controls="qrDialog" aria-label="Mostrar QR do WhatsApp" title="QR do WhatsApp">
+            <i data-feather="grid"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <span class="label">WhatsApp</span>
+        <a class="value" href="https://api.whatsapp.com/send?phone=5527999208451" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
+          /enviar mensagem
+        </a>
+        <div class="actions">
+          <a class="icon-btn" href="https://api.whatsapp.com/send?phone=5527999208451" target="_blank" rel="noopener" aria-label="Abrir WhatsApp" title="Abrir WhatsApp">
+            <i data-feather="message-circle"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <span class="label">E-mail</span>
+        <a class="value" href="mailto:rubenbruno@outlook.com" aria-label="Enviar e-mail para rubenbruno@outlook.com">rubenbruno@outlook.com</a>
+        <div class="actions">
+          <button class="icon-btn" data-copy="rubenbruno@outlook.com" aria-label="Copiar e-mail" title="Copiar e-mail">
+            <i data-feather="copy"></i>
+          </button>
+          <a class="icon-btn" href="mailto:rubenbruno@outlook.com" aria-label="Enviar e-mail" title="Enviar e-mail">
+            <i data-feather="mail"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <a class="primary-btn" href="tel:+5527999208451">
+        <i data-feather="phone-call"></i>
+        Ligar agora
+      </a>
+      <a class="secondary-btn" href="https://api.whatsapp.com/send?phone=5527999208451" target="_blank" rel="noopener">
+        <i data-feather="send"></i>
+        WhatsApp
+      </a>
+      <button class="secondary-btn" id="saveContactBtn">
+        <i data-feather="download"></i>
+        Baixar contato
+      </button>
+    </section>
+
+    <footer class="footer">
+      <small>Disponível para suporte e atendimento</small>
+    </footer>
+  </main>
+
+  <dialog id="qrDialog" class="qr-dialog" aria-label="QR Code para WhatsApp">
+    <div class="qr-wrap">
+      <h2>WhatsApp — Rúben Menezes</h2>
+      <canvas id="qrCanvas" width="256" height="256" aria-label="QR Code"></canvas>
+      <p class="qr-hint">Escaneie para iniciar a conversa</p>
+      <div class="qr-actions">
+        <a class="secondary-btn" href="https://api.whatsapp.com/send?phone=5527999208451" target="_blank" rel="noopener">
+          Abrir no WhatsApp
+        </a>
+        <button class="icon-btn" id="qrClose" aria-label="Fechar">
+          <i data-feather="x"></i>
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
+
