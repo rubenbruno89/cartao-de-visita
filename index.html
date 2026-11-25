@@ -1,1 +1,189 @@
-<!DOCTYPE html> <html lang="pt-BR"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Rúben Bruno Cavalcante de Menezes | Cartão de Visita</title> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> <style> * { margin: 0; padding: 0; box-sizing: border-box; } body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; } .card { background: #ffffff; width: 100%; max-width: 380px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4); text-align: center; } .card-header { background: linear-gradient(135deg, #1e3c72, #2a5298); height: 130px; } .photo { width: 150px; height: 150px; border-radius: 50%; border: 5px solid #ffffff; object-fit: cover; object-position: top; margin-top: -75px; background: #e9ecef; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25); } .card-body { padding: 15px 25px 30px; } h1 { font-size: 1.35rem; color: #1e3c72; margin-top: 10px; line-height: 1.3; } .divider { width: 60px; height: 3px; background: #2a5298; margin: 15px auto 20px; border-radius: 2px; } .contact-list { list-style: none; text-align: left; margin-bottom: 20px; } .contact-list li { margin-bottom: 10px; } .contact-list a { display: flex; align-items: center; gap: 15px; padding: 12px 15px; background: #f4f6fa; border-radius: 12px; text-decoration: none; color: #333; font-size: 0.95rem; transition: all 0.3s ease; } .contact-list a:hover { background: #e3e9f5; transform: translateX(5px); } .contact-list i { font-size: 1.2rem; color: #2a5298; width: 25px; text-align: center; } .contact-list small { display: block; color: #888; font-size: 0.75rem; } .btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px; border: none; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: all 0.3s ease; margin-bottom: 10px; } .btn-whatsapp { background: #25d366; color: #fff; } .btn-whatsapp:hover { background: #1ebe5a; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); } .btn-save { background: #1e3c72; color: #fff; } .btn-save:hover { background: #2a5298; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(30, 60, 114, 0.4); } </style> </head> <body> <div class="card"> <div class="card-header"></div> <!-- FOTO: salve sua foto como "foto.jpg" na mesma pasta deste arquivo --> <img src="foto.jpg" alt="Foto de Rúben Bruno" class="photo"> <div class="card-body"> <h1>Rúben Bruno<br>Cavalcante de Menezes</h1> <div class="divider"></div> <ul class="contact-list"> <li> <a href="tel:+5527999208451"> <i class="fa-solid fa-phone"></i> <div> <small>Celular</small> (27) 99920-8451 </div> </a> </li> <li> <a href="mailto:rubenbruno@outlook.com"> <i class="fa-solid fa-envelope"></i> <div> <small>E-mail</small> rubenbruno@outlook.com </div> </a> </li> <li> <a href="https://wa.me/5527999208451" target="_blank" rel="noopener"> <i class="fa-brands fa-whatsapp"></i> <div> <small>WhatsApp</small> (27) 99920-8451 </div> </a> </li> </ul> <!-- Botão com a API do WhatsApp --> <a id="btnWhatsapp" class="btn btn-whatsapp" href="#" target="_blank" rel="noopener"> <i class="fa-brands fa-whatsapp"></i> Chamar no WhatsApp </a> <!-- Botão para salvar o contato na agenda --> <button class="btn btn-save" onclick="salvarContato()"> <i class="fa-solid fa-address-book"></i> Salvar Contato </button> </div> </div> <script> // ===== API DO WHATSAPP ===== const numero = "5527999208451"; // 55 (Brasil) + 27 (DDD) + número const mensagem = "Olá, Rúben! Vi seu cartão de visita e gostaria de falar com você."; const linkWhatsapp = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`; document.getElementById("btnWhatsapp").href = linkWhatsapp; // ===== SALVAR CONTATO (vCard) ===== function salvarContato() { const vcard = `BEGIN:VCARD VERSION:3.0 N:Menezes;Rúben Bruno Cavalcante de;;; FN:Rúben Bruno Cavalcante de Menezes TEL;TYPE=CELL:+5527999208451 EMAIL;TYPE=INTERNET:rubenbruno@outlook.com URL:https://wa.me/5527999208451 END:VCARD`; const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" }); const url = URL.createObjectURL(blob); const link = document.createElement("a"); link.href = url; link.download = "Ruben-Bruno.vcf"; document.body.appendChild(link); link.click(); document.body.removeChild(link); URL.revokeObjectURL(url); } </script> </body> </html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartão de Visita - Rúben Bruno</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #2c5364);
+    }
+
+    .cartao {
+      width: 100%;
+      max-width: 380px;
+      overflow: hidden;
+      border-radius: 20px;
+      background: white;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .topo {
+      height: 120px;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+    }
+
+    .foto {
+      width: 150px;
+      height: 150px;
+      margin-top: -75px;
+      border: 5px solid white;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      background: #eee;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .conteudo {
+      padding: 10px 25px 30px;
+    }
+
+    h1 {
+      margin: 12px 0;
+      color: #1e3c72;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+    .linha {
+      width: 60px;
+      height: 3px;
+      margin: 15px auto 22px;
+      border-radius: 5px;
+      background: #2a5298;
+    }
+
+    .contato {
+      display: block;
+      margin-bottom: 10px;
+      padding: 13px;
+      border-radius: 10px;
+      background: #f2f5fa;
+      color: #333;
+      text-align: left;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    .contato span {
+      display: block;
+      margin-bottom: 4px;
+      color: #666;
+      font-size: 12px;
+    }
+
+    .botao {
+      display: block;
+      width: 100%;
+      margin-top: 15px;
+      padding: 15px;
+      border: 0;
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      font-family: inherit;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .whatsapp {
+      background: #168a42;
+    }
+
+    .salvar {
+      background: #1e3c72;
+    }
+
+    .botao:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="cartao">
+    <div class="topo"></div>
+
+    <!-- Coloque a imagem foto.jpg na mesma pasta do index.html -->
+    <img class="foto" src="foto.jpg" alt="Foto de Rúben Bruno">
+
+    <div class="conteudo">
+      <h1>Rúben Bruno<br>Cavalcante de Menezes</h1>
+
+      <div class="linha"></div>
+
+      <a class="contato" href="tel:+5527999208451">
+        <span>Celular</span>
+        📞 (27) 99920-8451
+      </a>
+
+      <a class="contato" href="mailto:rubenbruno@outlook.com">
+        <span>E-mail</span>
+        ✉️ rubenbruno@outlook.com
+      </a>
+
+      <a class="contato" href="https://wa.me/5527999208451">
+        <span>WhatsApp</span>
+        💬 (27) 99920-8451
+      </a>
+
+      <!-- Link direto: não depende de JavaScript -->
+      <a class="botao whatsapp" href="https://wa.me/5527999208451">
+        💬 Chamar no WhatsApp
+      </a>
+
+      <button class="botao salvar" type="button" onclick="salvarContato()">
+        📇 Salvar contato
+      </button>
+    </div>
+  </main>
+
+  <script>
+    function salvarContato() {
+      const vcard = [
+        "BEGIN:VCARD",
+        "VERSION:3.0",
+        "N:Menezes;Rúben Bruno Cavalcante de;;;",
+        "FN:Rúben Bruno Cavalcante de Menezes",
+        "TEL;TYPE=CELL:+5527999208451",
+        "EMAIL;TYPE=INTERNET:rubenbruno@outlook.com",
+        "URL:https://wa.me/5527999208451",
+        "END:VCARD"
+      ].join("\r\n");
+
+      const arquivo = new Blob([vcard], {
+        type: "text/vcard;charset=utf-8"
+      });
+
+      const endereco = URL.createObjectURL(arquivo);
+      const link = document.createElement("a");
+
+      link.href = endereco;
+      link.download = "Ruben-Bruno.vcf";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      setTimeout(function () {
+        URL.revokeObjectURL(endereco);
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
